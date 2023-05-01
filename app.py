@@ -13,4 +13,4 @@ toolbar = DebugToolbarExtension(app)
 @app.route("/")
 def start_survey():
     survey = surveys["satisfaction"]
-    return render_template("survey_start.html", survey=survey)
+    return render_template("survey_start.html", satisfaction_survey=survey)
