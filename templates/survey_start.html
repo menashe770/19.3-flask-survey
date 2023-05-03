@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
-<h1>{{ satisfaction_survey.title }}</h1>
-<p>{{ satisfaction_survey.instructions }}</p>
+<h1>{{ survey.title }}</h1>
+<p>{{ survey.instructions }}</p>
 <form action="/questions/0" method="post">
   <button type="submit">Start the survey</button>
 </form>
