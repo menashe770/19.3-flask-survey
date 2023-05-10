@@ -19,8 +19,14 @@ def start_survey():
 def show_question(qid):
     responses = session.get(RESPONSES_KEY)
 
+    if responses is None:
+        return redirect("/")
+
     if len(responses) == len(survey.questions):
         return redirect("/complete")
+
+    if len(responses) != qid:
+        return redirect(f"/question/{len(responses)}")
 
     question = survey.questions[qid]
     return render_template("questions.html", question=question)
