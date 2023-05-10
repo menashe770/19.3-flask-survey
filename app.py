@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, session, redirect
+from flask import Flask, request, render_template, session, redirect, flash
 from flask_debugtoolbar import DebugToolbarExtension
 from surveys import satisfaction_survey as survey
 
@@ -26,6 +26,7 @@ def show_question(qid):
         return redirect("/complete")
 
     if len(responses) != qid:
+        flash(f"Invalid request: id {qid}")
         return redirect(f"/question/{len(responses)}")
 
     question = survey.questions[qid]
